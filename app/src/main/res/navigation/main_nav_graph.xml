@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/setupFragment">
+
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="fi.henrimakela.fishwidget.view.ForecastFragment"
+        android:label="fragment_forecast"
+        tools:layout="@layout/fragment_forecast" />
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="fi.henrimakela.fishwidget.view.SetupFragment"
+        android:label="fragment_setup"
+        tools:layout="@layout/fragment_setup" >
+        <action
+            android:id="@+id/action_setupFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment"
+            app:popUpTo="@id/setupFragment" />
+    </fragment>
+</navigation>

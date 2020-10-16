@@ -1,6 +1,7 @@
 package fi.henrimakela.fishwidget.data
 
 import WeatherResponse
+import com.google.android.gms.location.FusedLocationProviderClient
 import fi.henrimakela.data.WeatherDataSource
 import fi.henrimakela.fishwidget.BuildConfig
 import fi.henrimakela.fishwidget.data.network.WeatherService
