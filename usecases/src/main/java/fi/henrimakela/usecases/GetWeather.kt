@@ -3,6 +3,8 @@ package fi.henrimakela.usecases
 import fi.henrimakela.data.repository.WeatherRepository
 
 
-class GetWeather(private val lat: Double, private val lon: Double, private val repository: WeatherRepository) {
-    suspend operator fun invoke() = repository.getWeather(lat, lon)
+class GetWeather(private val repository: WeatherRepository) {
+
+
+    suspend operator fun invoke(lat: Double,  lon: Double) = repository.getWeather(lat, lon)
 }

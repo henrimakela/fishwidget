@@ -6,38 +6,31 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fi.henrimakela.data.repository.WeatherRepository
+import fi.henrimakela.domain.Resource
 import fi.henrimakela.fishwidget.data.WeatherDataSourceImpl
 import fi.henrimakela.fishwidget.data.network.WeatherService
 import fi.henrimakela.usecases.GetWeather
 import kotlinx.coroutines.launch
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class ForecastViewModel : ViewModel() {
+class ForecastViewModel : ViewModel(), KoinComponent {
 
+    private val getWeather: GetWeather by inject()
+    private var _weatherResponse = MutableLiveData<Resource<WeatherResponse>>()
+    private var _isLoading = MutableLiveData<Boolean>()
 
-    private var _weatherResponse = MutableLiveData<WeatherResponse>()
-    val weatherResponse: LiveData<WeatherResponse> get() = _weatherResponse
-
-    init {
-        loadWeather()
-    }
-
-    private fun loadWeather() {
-        viewModelScope.launch {
-            //_weatherResponse.postValue(getWeather())
-        }
-    }
+    val weatherResponse: LiveData<Resource<WeatherResponse>> get() = _weatherResponse
+    val isLoading: LiveData<Boolean> get() = _isLoading
 
     fun getWeatherWithCoordinates(lat: Double, lon: Double) {
+        _isLoading.value = true
+
         viewModelScope.launch {
             _weatherResponse.postValue(
-                GetWeather(
-                    65.012615, 25.471453, WeatherRepository(
-                        WeatherDataSourceImpl(
-                            WeatherService.create()
-                        )
-                    )
-                ).invoke()
+                getWeather(lat, lon)
             )
+            _isLoading.value = false
         }
     }
 }
