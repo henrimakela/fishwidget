@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import fi.henrimakela.domain.Status
+import fi.henrimakela.domain.fish.FishForecast
 import fi.henrimakela.fishwidget.R
 import fi.henrimakela.fishwidget.viewmodel.ForecastViewModel
 import kotlinx.android.synthetic.main.fragment_forecast.*
@@ -40,23 +41,28 @@ class ForecastFragment : Fragment() {
             ViewModelProvider(findNavController().getViewModelStoreOwner(R.id.main_nav_graph)).get(
                 ForecastViewModel::class.java
             )
-        getWeatherWithUserCoordinates()
+        getForecastWithUserCoordinates()
 
         forecastViewModel.isLoading.observe(viewLifecycleOwner, Observer {
             showLoading()
         })
 
-        forecastViewModel.weatherResponse.observe(viewLifecycleOwner, Observer {
+        /*forecastViewModel.weatherResponse.observe(viewLifecycleOwner, Observer {
 
             when (it.status) {
                 Status.SUCCESS -> updateViews(it.data!!)
                 Status.ERROR -> showError(it.message!!)
             }
 
-        })
+        })*/
+
+        forecastViewModel.fishForecast.observe(viewLifecycleOwner, Observer {
+            updateViews(it)
+        }
+        )
 
         refresh.setOnClickListener {
-            getWeatherWithUserCoordinates()
+            getForecastWithUserCoordinates()
         }
     }
 
@@ -73,16 +79,18 @@ class ForecastFragment : Fragment() {
         error.text = message
     }
 
-    private fun updateViews(data: WeatherResponse) {
+    private fun updateViews(data: FishForecast) {
         error.visibility = View.GONE
         progress_indicator.visibility = View.GONE
-        temperature.visibility = View.VISIBLE
-        wind.visibility = View.VISIBLE
-        temperature.text = "${data.current.temp} °C"
-        wind.text = "${data.current.wind_speed} m/s"
+        main.text = data.main
+        fish_weather_description.text = data.description_fish_weather
+        pressure_description.text = data.description_pressure
+        wind_description.text = data.description_wind
+        temperature.text = "${data.temp} °C"
+        wind.text = "${data.wind_speed} m/s"
     }
 
-    private fun getWeatherWithUserCoordinates() {
+    private fun getForecastWithUserCoordinates() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         if (checkSelfPermission(
@@ -95,7 +103,7 @@ class ForecastFragment : Fragment() {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener {
-                forecastViewModel.getWeatherWithCoordinates(it.latitude, it.longitude)
+                forecastViewModel.getForecastWithCoordinates(it.latitude, it.longitude)
             }
         }
     }

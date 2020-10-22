@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="?background"
     tools:context=".view.ForecastFragment">
     
@@ -14,10 +14,6 @@
         android:id="@+id/progress_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         />
 
     <TextView
@@ -28,38 +24,61 @@
         tools:text="Something went wrong"
         android:textColor="?colorOnBackground"
         android:textAppearance="?textAppearanceHeadline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         />
 
+    <TextView
+        android:id="@+id/main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="?colorOnBackground"
+         />
+    <TextView
+        android:id="@+id/fish_weather_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="?colorOnBackground"
+         />
+    <TextView
+        android:id="@+id/pressure_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="?colorOnBackground"
+         />
+    <TextView
+        android:id="@+id/wind_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="?colorOnBackground"
+         />
     <TextView
         android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?colorOnBackground"
+        android:gravity="center"
         tools:text="23°C"
-        android:visibility="gone"
-        android:textAppearance="?textAppearanceHeadline1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="?textAppearanceHeadline5"
         />
 
     <TextView
         android:id="@+id/wind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         tools:text="23 m/s"
         android:textColor="?colorOnBackground"
         android:textAppearance="?textAppearanceHeadline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/temperature"
-        android:layout_marginTop="@dimen/margin_medium"
         />
 
 
@@ -67,8 +86,6 @@
         android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:backgroundTint="?colorOnBackground"
@@ -78,4 +95,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

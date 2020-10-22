@@ -1,7 +1,9 @@
 package fi.henrimakela.usecases
 
-import Weather
+import WeatherResponse
+import fi.henrimakela.data.FishingDataSource
 
-class GetFishForecast(private val weather:Weather){
+class GetFishForecast(private val dataSource: FishingDataSource){
 
+    suspend operator fun invoke(weather: WeatherResponse) = dataSource.getFishForecast(weather)
 }
