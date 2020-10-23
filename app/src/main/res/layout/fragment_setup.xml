@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?background"
     tools:context=".view.SetupFragment">
 
     <TextView
-        android:id="@+id/title"
-        android:textAppearance="?textAppearanceHeadline5"
+        android:id="@+id/subtitle"
+        android:textAppearance="?textAppearanceBody1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,20 +18,18 @@
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:gravity="center"
-        android:textColor="?colorOnBackground"
-        android:text="This application needs your location!"
+        android:text="@string/require_location"
         />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/permissionButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Use location"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:textColor="?colorOnBackground"
+        android:text="@string/use_location"
+        style="?buttonStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/subtitle"
         android:layout_margin="@dimen/margin_medium"
         />
 
