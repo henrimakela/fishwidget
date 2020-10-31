@@ -29,15 +29,15 @@ class ForecastViewModel : ViewModel(), KoinComponent {
 
     val weatherResponse: LiveData<Resource<WeatherResponse>> get() = _weatherResponse
     val fishForecast: LiveData<FishForecast> get() = _fishForecast
-
     val isLoading: LiveData<Boolean> get() = _isLoading
 
     fun getForecastWithCoordinates(lat: Double, lon: Double) {
-        _isLoading.value = true
+        _isLoading.postValue(true)
 
         viewModelScope.launch {
 
             val weather =    getWeather(lat, lon)
+            _weatherResponse.postValue(weather)
 
             if(weather.status == Status.SUCCESS){
                 weather.data?.let {

@@ -5,4 +5,9 @@
     <string name="fragment_forecast_loading_weather">Loading...</string>
     <string name="use_location">Use location</string>
     <string name="require_location">This application requires your geographic location to be able to fetch fish weather.</string>
+    <string name="refresh_forecast">Refresh forecast</string>
+    <string name="fishing_condition_content_description">Description of condition concerning fishing</string>
+    <string name="overall_weather_title">Sään vaikutus kalastukseen</string>
+    <string name="wind_title">Tuulen vaikutus kalastukseen</string>
+    <string name="air_pressure_title">Ilmanpaineen vaikutus kalastukseeen</string>
 </resources>
