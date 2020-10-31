@@ -10,4 +10,20 @@
     <string name="overall_weather_title">Sään vaikutus kalastukseen</string>
     <string name="wind_title">Tuulen vaikutus kalastukseen</string>
     <string name="air_pressure_title">Ilmanpaineen vaikutus kalastukseeen</string>
+    <string name="orientation_nne">NNE</string>
+    <string name="orientation_ne">NE</string>
+    <string name="orientation_ene">ENE</string>
+    <string name="orientation_e">E</string>
+    <string name="orientation_ese">ESE</string>
+    <string name="orientation_se">SE</string>
+    <string name="orientation_sse">SSE</string>
+    <string name="orientation_s">S</string>
+    <string name="orientation_ssw">SSW</string>
+    <string name="orientation_sw">SW</string>
+    <string name="orientation_wsw">WSW</string>
+    <string name="orientation_w">W</string>
+    <string name="orientation_wnw">WNW</string>
+    <string name="orientation_nw">NW</string>
+    <string name="orientation_nnw">NNW</string>
+    <string name="orientation_n">N</string>
 </resources>
