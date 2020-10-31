@@ -110,7 +110,7 @@ class ForecastFragment : Fragment() {
     private fun updateList(data: FishForecast) {
         var overAllWeatherItemData = ListItemData(
             R.drawable.ic_fish,
-            getString(R.string.overall_weather_title),
+             getString(R.string.overall_weather_title),
             data.description_fish_weather
         )
 

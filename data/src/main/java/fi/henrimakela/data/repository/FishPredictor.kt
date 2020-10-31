@@ -39,8 +39,7 @@ object FishPredictor {
             weather.current.humidity,
             weather.current.pressure,
             weather.current.wind_speed,
-            weather.current.wind_deg,
-            convertWindDegToString(weather.current.wind_deg)
+            weather.current.wind_deg
         )
         return forecast
     }

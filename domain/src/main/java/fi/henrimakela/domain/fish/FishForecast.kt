@@ -11,6 +11,5 @@ data class FishForecast(
     var humidity: Double,
     var pressure: Double,
     var wind_speed: Double,
-    var wind_deg: Double,
-    var wind_deg_string: String
+    var wind_deg: Double
 )
