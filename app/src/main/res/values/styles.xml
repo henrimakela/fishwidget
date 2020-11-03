@@ -34,7 +34,7 @@
         <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="label" parent="TextAppearance.MaterialComponents.Caption">

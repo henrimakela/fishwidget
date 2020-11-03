@@ -21,7 +21,7 @@ private fun getWindDegString(deg: Double, context: Context): String {
         deg in 303.75..326.25 -> context.getString(R.string.orientation_nw)
         deg in 326.25..348.75 -> context.getString(R.string.orientation_nnw)
         else -> {
-            context.getString(R.string.orientation_N)
+            context.getString(R.string.orientation_n)
         }
     }
 }

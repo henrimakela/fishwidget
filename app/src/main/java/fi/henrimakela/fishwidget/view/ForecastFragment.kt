@@ -3,12 +3,11 @@ package fi.henrimakela.fishwidget.view
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -22,6 +21,7 @@ import fi.henrimakela.fishwidget.R
 import fi.henrimakela.fishwidget.adapter.ForecastAdapter
 import fi.henrimakela.fishwidget.viewmodel.ForecastViewModel
 import kotlinx.android.synthetic.main.fragment_forecast.*
+
 
 class ForecastFragment : Fragment() {
 
@@ -55,7 +55,7 @@ class ForecastFragment : Fragment() {
 
 
         forecastViewModel.weatherResponse.observe(viewLifecycleOwner, Observer {
-            if(it.status == Status.ERROR){
+            if (it.status == Status.ERROR) {
                 showError(it.message!!)
             }
 
@@ -69,16 +69,27 @@ class ForecastFragment : Fragment() {
         refresh.setOnClickListener {
             getForecastWithUserCoordinates()
         }
+
+        toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settings -> {
+                    Toast.makeText(requireContext(), "Settings", Toast.LENGTH_LONG).show()
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
     }
 
     private fun showOrHideLoading(isLoading: Boolean) {
-        if(isLoading){
-            arrayOf(temperature, weather_description, weather_icon).forEach {
+        if (isLoading) {
+            arrayOf(temperature, weather_description).forEach {
                 it.visibility = View.INVISIBLE
             }
             progress_indicator.visibility = View.VISIBLE
-        }
-        else{
+        } else {
             progress_indicator.visibility = View.GONE
         }
     }
@@ -94,7 +105,7 @@ class ForecastFragment : Fragment() {
             it.visibility = View.INVISIBLE
         }
 
-        arrayOf(temperature, weather_description, weather_icon).forEach {
+        arrayOf(temperature, weather_description).forEach {
             it.visibility = View.VISIBLE
         }
 
@@ -104,13 +115,12 @@ class ForecastFragment : Fragment() {
         feels.text = "${data.feels_like.toInt()}°"
         humidity.text = "${data.humidity.toInt()}%"
         updateList(data)
-        Picasso.get().load(data.icon).resize(32, 32).into(weather_icon)
     }
 
     private fun updateList(data: FishForecast) {
         var overAllWeatherItemData = ListItemData(
             R.drawable.ic_fish,
-             getString(R.string.overall_weather_title),
+            getString(R.string.overall_weather_title),
             data.description_fish_weather
         )
 

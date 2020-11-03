@@ -26,4 +26,5 @@
     <string name="orientation_nw">NW</string>
     <string name="orientation_nnw">NNW</string>
     <string name="orientation_n">N</string>
+    <string name="settings">Settings</string>
 </resources>
