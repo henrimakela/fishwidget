@@ -154,6 +154,8 @@ class ForecastFragment : Fragment() {
             fusedLocationClient.lastLocation.addOnSuccessListener {
                 forecastViewModel.getForecastWithCoordinates(it.latitude, it.longitude)
             }
+
+            //TODO: Handle failure
         }
     }
 
