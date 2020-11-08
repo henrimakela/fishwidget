@@ -81,14 +81,14 @@
                     android:text="Tuuli"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/label_feels" />
+                    app:layout_constraintTop_toTopOf="@id/label_wind_deg" />
 
                 <TextView
-                    android:id="@+id/label_feels"
+                    android:id="@+id/label_wind_deg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_large"
-                    android:text="Tuntuu kuin"
+                    android:text="Tuulen suunta"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintEnd_toEndOf="@id/temperature"
                     app:layout_constraintStart_toStartOf="@id/temperature"
@@ -102,7 +102,7 @@
                     android:text="Kosteus"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/label_feels" />
+                    app:layout_constraintTop_toTopOf="@id/label_wind_deg" />
 
                 <TextView
                     android:id="@+id/wind"
@@ -113,8 +113,7 @@
                     app:layout_constraintEnd_toEndOf="@id/label_wind"
                     app:layout_constraintStart_toStartOf="@id/label_wind"
                     app:layout_constraintTop_toTopOf="@id/divider_1"
-                    tools:text="N 5m/s"
-
+                    tools:text="5m/s"
                     />
 
                 <View
@@ -123,21 +122,21 @@
                     android:layout_height="32dp"
                     android:background="@color/color_divider"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/label_feels"
+                    app:layout_constraintEnd_toStartOf="@id/label_wind_deg"
                     app:layout_constraintStart_toEndOf="@id/label_wind"
                     app:layout_constraintTop_toBottomOf="@id/label_wind"
                     app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
-                    android:id="@+id/feels"
+                    android:id="@+id/wind_deg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?textAppearanceHeadline5"
                     app:layout_constraintBottom_toBottomOf="@id/divider_1"
-                    app:layout_constraintEnd_toEndOf="@id/label_feels"
-                    app:layout_constraintStart_toStartOf="@id/label_feels"
+                    app:layout_constraintEnd_toEndOf="@id/label_wind_deg"
+                    app:layout_constraintStart_toStartOf="@id/label_wind_deg"
                     app:layout_constraintTop_toTopOf="@id/divider_1"
-                    tools:text="10°"
+                    tools:text="N"
 
                     />
 
@@ -148,8 +147,8 @@
                     android:background="@color/color_divider"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/label_humidity"
-                    app:layout_constraintStart_toEndOf="@id/label_feels"
-                    app:layout_constraintTop_toBottomOf="@id/label_feels"
+                    app:layout_constraintStart_toEndOf="@id/label_wind_deg"
+                    app:layout_constraintTop_toBottomOf="@id/label_wind_deg"
                     app:layout_constraintVertical_bias="0.3" />
 
                 <TextView

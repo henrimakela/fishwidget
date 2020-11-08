@@ -19,8 +19,10 @@ import fi.henrimakela.domain.Status
 import fi.henrimakela.domain.fish.FishForecast
 import fi.henrimakela.fishwidget.R
 import fi.henrimakela.fishwidget.adapter.ForecastAdapter
+import fi.henrimakela.fishwidget.util.getWindDegString
 import fi.henrimakela.fishwidget.viewmodel.ForecastViewModel
 import kotlinx.android.synthetic.main.fragment_forecast.*
+
 
 
 class ForecastFragment : Fragment() {
@@ -112,7 +114,7 @@ class ForecastFragment : Fragment() {
         temperature.text = "${data.temp.toInt()}°"
         weather_description.text = data.main
         wind.text = "${data.wind_speed.toInt()} m/s"
-        feels.text = "${data.feels_like.toInt()}°"
+        wind_deg.text = getWindDegString(data.wind_deg, requireContext())
         humidity.text = "${data.humidity.toInt()}%"
         updateList(data)
     }
