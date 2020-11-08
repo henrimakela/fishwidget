@@ -7,6 +7,7 @@ import java.beans.Visibility
 //http://www.kalassa.net/kalapedia/index.php/S%C3%A4%C3%A4n_vaikutus_kalastukseen
 object FishPredictor {
 
+    private val ICON_BASE_URL = "http://openweathermap.org/img/wn/"
     private val LOW_PRESSURE =
         "Ilmanpaineen nopeat ja suuret muutokset vaikuttavat kielteisesti kalojen aktiivisuuteen ja syöntihalukkuuteen. Näin käy etenkin silloin, kun ilmanpaine laskee voimakkaasti"
     private val STEADY_PRESSURE =
@@ -32,7 +33,10 @@ object FishPredictor {
             getPressureDesc(weather.current.pressure),
             getWindDesc(weather.current.wind_speed),
             weather.current.weather[0].main,
+            "$ICON_BASE_URL${weather.current.weather[0].icon}.png",
             weather.current.temp,
+            weather.current.feels_like,
+            weather.current.humidity,
             weather.current.pressure,
             weather.current.wind_speed,
             weather.current.wind_deg
@@ -41,10 +45,10 @@ object FishPredictor {
     }
 
     private fun getWindDesc(windSpeed: Double): String {
-        if(windSpeed > 4){
+        if (windSpeed > 4) {
             return WIND
         }
-        return ""
+        return "Tuulella ei ole vaikutusta kalastukseen tällä kelillä."
     }
 
 
@@ -74,10 +78,34 @@ object FishPredictor {
                 VISIBILITY_CLEAR_SKY
             }
             else -> {
-                "NOT A GOOD TIME TO GO FISHING"
+                VISIBILITY_CLOUDINESS
             }
         }
     }
+
+    private fun convertWindDegToString(deg: Double): String {
+        return when {
+            deg in 11.25..33.75 -> "NNE"
+            deg in 33.75..56.25 -> "NE"
+            deg in 56.25..78.75 -> "ENE"
+            deg in 78.75..101.25 -> "E"
+            deg in 101.25..123.75 -> "ESE"
+            deg in 123.75..146.25 -> "SE"
+            deg in 146.25..168.75 -> "SSE"
+            deg in 168.75..191.25 -> "S"
+            deg in 191.25..213.75 -> "SSW"
+            deg in 213.75..236.25 -> "SW"
+            deg in 236.25..258.75 -> "WSW"
+            deg in 258.75..281.25 -> "W"
+            deg in 281.25..303.75 -> "WNW"
+            deg in 303.75..326.25 -> "NW"
+            deg in 326.25..348.75 -> "NNW"
+            else -> {
+                "N"
+            }
+        }
+    }
+
 }
 
 /*
