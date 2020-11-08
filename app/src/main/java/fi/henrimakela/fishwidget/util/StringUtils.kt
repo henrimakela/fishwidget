@@ -3,7 +3,7 @@ package fi.henrimakela.fishwidget.util
 import android.content.Context
 import fi.henrimakela.fishwidget.R
 
-private fun getWindDegString(deg: Double, context: Context): String {
+fun getWindDegString(deg: Double, context: Context): String {
     return when {
         deg in 11.25..33.75 -> context.getString(R.string.orientation_nne)
         deg in 33.75..56.25 -> context.getString(R.string.orientation_ne)

@@ -25,7 +25,7 @@ object FishPredictor {
     private val WATER_TEMP =
         "Eri kalalajeilla on oma lämpötilansa, joissa ne viihtyvät parhaiten. Suotuisan lämpötilan sattuessa ne ovat aktiivisia, syövät enemmän ja kasvavat nopeammin sekä käyvät syöttiin hanakammin. Osa kaloista sietää niin kylmää, kuin lämmintäkin vettä. Tälaisia kaloja ovat ainakin ahven, hauki ja made."
     private val WIND =
-        "tuulella kala näkee huonommin, kuin tyynellä, jolloin kalat ovat arkoja. Kalat ovat usein tuulenpuoleisella rannalla, joissa on enemmän ravintoa, ja happea."
+        "Tuulella kala näkee huonommin, kuin tyynellä, jolloin kalat ovat arkoja. Kalat ovat usein tuulenpuoleisella rannalla, joissa on enemmän ravintoa, ja happea."
 
     fun getPrediction(weather: WeatherResponse): FishForecast {
         var forecast = FishForecast(
