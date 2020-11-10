@@ -27,4 +27,14 @@
     <string name="orientation_nnw">NNW</string>
     <string name="orientation_n">N</string>
     <string name="settings">Settings</string>
+    <string name="prediction_low_pressure">Ilmanpaineen nopeat ja suuret muutokset vaikuttavat kielteisesti kalojen aktiivisuuteen ja syöntihalukkuuteen. Näin käy etenkin silloin, kun ilmanpaine laskee voimakkaasti</string>
+    <string name="prediction_steady_pressure">Hitaat, pienet ilmanpaineen muutokset tai muuttumaton ilmanpaine ovat kalastajan kannalta parempia, kuin äkillisesti muuttuva. Tasaisella ilmanpaineella kalat ovat ikäänkuin vilkkaita, ja käyvät hanakasti koukkuun.</string>
+    <string name="prediction_clear_sky">Kun ilma on aurinkoinen ja taivaalla on vain vähän pilviä, kalat ovat varovaisia, arkoja ja valppaita. Tällöin kalastajan on oltava erityisen hiljainen ja varovainen.</string>
+    <string name="prediction_cloudiness">Pilvisyys vaikuttaa valaistukseen vedessä ja kalan kykyyn nähdä. Kalat eivät ole niin arkoja pilvisellä säällä kuin kirkkaalla.</string>
+    <string name="prediction_nightfall">Iltahämärässä kalat usein jättävät vakituisen olinpaikkansa ja siirtyvät toiseen paikkaan. Petokalat siirtyvät silloin matalampaan veteen saalistamaan. Tällöin kalat ovat myös arkoja, joten kalasta varovaisesti.</string>
+    <string name="prediction_rain_normal">Kohtuullinen sade tekee usein kaloista vilkkaita, erityisesti silloin, kun sade viilentää lämmintä pintavettä. Sade hävittää myös varjoja, joten kalat eivät erota kalastajaa rannalta yhtä hyvin, kuin aurinkoisella säällä.</string>
+    <string name="prediction_rain_heavy">Runsas ja voimakas sade hiljentää kalojen aktiivisuutta joksikin aikaa. Sade myös laskee veden lämpötilaa. Kalat ovat melko herkkiä lämpötilanvaiheluille, siksi sade sotkeekin kalojen ravinnonhakurytmin.</string>
+    <string name="prediction_water_temp">Eri kalalajeilla on oma lämpötilansa, joissa ne viihtyvät parhaiten. Suotuisan lämpötilan sattuessa ne ovat aktiivisia, syövät enemmän ja kasvavat nopeammin sekä käyvät syöttiin hanakammin. Osa kaloista sietää niin kylmää, kuin lämmintäkin vettä. Tälaisia kaloja ovat ainakin ahven, hauki ja made.</string>
+    <string name="prediction_wind_normal">Tuulella kala näkee huonommin, kuin tyynellä, jolloin kalat ovat arkoja. Kalat ovat usein tuulenpuoleisella rannalla, joissa on enemmän ravintoa, ja happea.</string>
+    <string name="prediction_no_wind">Tällä tuulella ei ole vaikutusta kalastamiseen</string>
 </resources>
