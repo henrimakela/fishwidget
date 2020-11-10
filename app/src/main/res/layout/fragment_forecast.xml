@@ -70,7 +70,7 @@
                     app:layout_constraintEnd_toEndOf="@id/temperature"
                     app:layout_constraintStart_toStartOf="@id/temperature"
                     app:layout_constraintTop_toBottomOf="@id/temperature"
-                    tools:text="Pilvinen" />
+                    tools:text="Clouds" />
 
                 <TextView
                     android:id="@+id/label_wind"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginBottom="32dp"
-                    android:text="Tuuli"
+                    android:text="@string/wind_label"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/label_wind_deg" />
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_large"
-                    android:text="Tuulen suunta"
+                    android:text="@string/wind_direction"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintEnd_toEndOf="@id/temperature"
                     app:layout_constraintStart_toStartOf="@id/temperature"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
-                    android:text="Kosteus"
+                    android:text="@string/humidity_label"
                     android:textAppearance="?textAppearanceCaption"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/label_wind_deg" />

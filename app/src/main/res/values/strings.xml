@@ -1,15 +1,13 @@
 <resources>
     <string name="app_name">fishwidget</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_forecast_loading_weather">Loading...</string>
     <string name="use_location">Use location</string>
     <string name="require_location">This application requires your geographic location to be able to fetch fish weather.</string>
     <string name="refresh_forecast">Refresh forecast</string>
     <string name="fishing_condition_content_description">Description of condition concerning fishing</string>
-    <string name="overall_weather_title">Sään vaikutus kalastukseen</string>
-    <string name="wind_title">Tuulen vaikutus kalastukseen</string>
-    <string name="air_pressure_title">Ilmanpaineen vaikutus kalastukseeen</string>
+    <string name="overall_weather_title">Impact of overall weather on fishing</string>
+    <string name="wind_title">Impact of wind on fishing</string>
+    <string name="air_pressure_title">Impact of air pressure on fishing</string>
     <string name="orientation_nne">NNE</string>
     <string name="orientation_ne">NE</string>
     <string name="orientation_ene">ENE</string>
@@ -27,14 +25,17 @@
     <string name="orientation_nnw">NNW</string>
     <string name="orientation_n">N</string>
     <string name="settings">Settings</string>
-    <string name="prediction_low_pressure">Ilmanpaineen nopeat ja suuret muutokset vaikuttavat kielteisesti kalojen aktiivisuuteen ja syöntihalukkuuteen. Näin käy etenkin silloin, kun ilmanpaine laskee voimakkaasti</string>
-    <string name="prediction_steady_pressure">Hitaat, pienet ilmanpaineen muutokset tai muuttumaton ilmanpaine ovat kalastajan kannalta parempia, kuin äkillisesti muuttuva. Tasaisella ilmanpaineella kalat ovat ikäänkuin vilkkaita, ja käyvät hanakasti koukkuun.</string>
-    <string name="prediction_clear_sky">Kun ilma on aurinkoinen ja taivaalla on vain vähän pilviä, kalat ovat varovaisia, arkoja ja valppaita. Tällöin kalastajan on oltava erityisen hiljainen ja varovainen.</string>
-    <string name="prediction_cloudiness">Pilvisyys vaikuttaa valaistukseen vedessä ja kalan kykyyn nähdä. Kalat eivät ole niin arkoja pilvisellä säällä kuin kirkkaalla.</string>
-    <string name="prediction_nightfall">Iltahämärässä kalat usein jättävät vakituisen olinpaikkansa ja siirtyvät toiseen paikkaan. Petokalat siirtyvät silloin matalampaan veteen saalistamaan. Tällöin kalat ovat myös arkoja, joten kalasta varovaisesti.</string>
-    <string name="prediction_rain_normal">Kohtuullinen sade tekee usein kaloista vilkkaita, erityisesti silloin, kun sade viilentää lämmintä pintavettä. Sade hävittää myös varjoja, joten kalat eivät erota kalastajaa rannalta yhtä hyvin, kuin aurinkoisella säällä.</string>
-    <string name="prediction_rain_heavy">Runsas ja voimakas sade hiljentää kalojen aktiivisuutta joksikin aikaa. Sade myös laskee veden lämpötilaa. Kalat ovat melko herkkiä lämpötilanvaiheluille, siksi sade sotkeekin kalojen ravinnonhakurytmin.</string>
-    <string name="prediction_water_temp">Eri kalalajeilla on oma lämpötilansa, joissa ne viihtyvät parhaiten. Suotuisan lämpötilan sattuessa ne ovat aktiivisia, syövät enemmän ja kasvavat nopeammin sekä käyvät syöttiin hanakammin. Osa kaloista sietää niin kylmää, kuin lämmintäkin vettä. Tälaisia kaloja ovat ainakin ahven, hauki ja made.</string>
-    <string name="prediction_wind_normal">Tuulella kala näkee huonommin, kuin tyynellä, jolloin kalat ovat arkoja. Kalat ovat usein tuulenpuoleisella rannalla, joissa on enemmän ravintoa, ja happea.</string>
-    <string name="prediction_no_wind">Tällä tuulella ei ole vaikutusta kalastamiseen</string>
+    <string name="prediction_low_pressure">Rapid and large changes in atmospheric pressure negatively affect fish activity and willingness to bite the lure. This is especially the case when the air pressure drops sharply</string>
+    <string name="prediction_steady_pressure">Slow, small changes in atmospheric pressure or steady atmospheric pressure is better for the fisherman than rapid changes. At a steady atmospheric pressure, the fish seem to be lively and bite the lure more easily.</string>
+    <string name="prediction_clear_sky">When the weather is clear the fish is careful, sensitive and on alert. In this case, the fisherman must be particularly quiet and careful.</string>
+    <string name="prediction_cloudiness">Cloudiness affects lighting in the water and the ability of the fish to see. Fish are not as sensitive in cloudy weather as in clear.</string>
+    <string name="prediction_nightfall">At dusk, the fish often leave their permanent whereabouts and move to another location. Predatory fish then move to lower water to prey. In this case, the fish are also sensitive, so fish carefully.</string>
+    <string name="prediction_rain_normal">A moderate rain often makes fish lively, especially when the rain cools the warm surface water. Rain also removes shadows, so the fish will not notice the fisherman from the shore as well as in sunny weather.</string>
+    <string name="prediction_rain_heavy">Heavy rain will slow down the activity of the fish for a while. Rain also lowers the water temperature. Fish are quite sensitive to temperature fluctuations, which is why rain messes the feeding rhythm of fish.</string>
+    <string name="prediction_water_temp">Different fish species have their own water temperatures where they thrive best. When the temperature is favorable, they are active, eat more and grow faster, and bite the lure more easily. Some fish tolerate both cold and warm water. Such fish are at least perch, pike and burbot.</string>
+    <string name="prediction_wind_normal">On a windy weather, the fish see worse than in the calm, when the fish are sensitive. Fish are often on the windward shore, where there is more food and oxygen.</string>
+    <string name="prediction_no_wind">This wind does not affect fishing</string>
+    <string name="wind_label">Wind</string>
+    <string name="wind_direction">Wind direction</string>
+    <string name="humidity_label">Humidity</string>
 </resources>
