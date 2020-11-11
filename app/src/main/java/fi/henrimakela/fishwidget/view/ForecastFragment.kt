@@ -143,7 +143,6 @@ class ForecastFragment : Fragment() {
 
     private fun getForecastWithUserCoordinates() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
-
         if (checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION

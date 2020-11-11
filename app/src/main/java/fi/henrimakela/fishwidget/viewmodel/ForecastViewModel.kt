@@ -5,12 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import fi.henrimakela.data.repository.WeatherRepository
 import fi.henrimakela.domain.Resource
 import fi.henrimakela.domain.Status
 import fi.henrimakela.domain.fish.FishForecast
-import fi.henrimakela.fishwidget.data.WeatherDataSourceImpl
-import fi.henrimakela.fishwidget.data.network.WeatherService
 import fi.henrimakela.usecases.GetFishForecast
 import fi.henrimakela.usecases.GetWeather
 import kotlinx.coroutines.launch

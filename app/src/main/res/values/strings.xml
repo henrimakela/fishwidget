@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">fishwidget</string>
-    <string name="fragment_forecast_loading_weather">Loading...</string>
     <string name="use_location">Use location</string>
     <string name="require_location">This application requires your geographic location to be able to fetch fish weather.</string>
     <string name="refresh_forecast">Refresh forecast</string>
