@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-//https://api.openweathermap.org/data/2.5/onecall?lat=65.000094&lon=25.508546&lang=fi&exclude=minutely,hourly,daily,alerts&units=metric&appid=
+//https://api.openweathermap.org/data/2.5/weather?lat=65.000094&lon=25.508546&lang=fi&exclude=minutely,hourly,daily,alerts&units=metric&appid=
 interface WeatherService {
-    @GET("data/2.5/onecall")
+    @GET("data/2.5/weather")
     suspend fun getWeather(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,

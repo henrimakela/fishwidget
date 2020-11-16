@@ -51,7 +51,7 @@ class FishWidgetProvider : AppWidgetProvider(), KoinComponent {
                             val lon = it.getDoubleExtra("lon", 0.0)
                             println("FishWidgetProvider: $lat $lon")
 
-                            GlobalScope.launch(Dispatchers.Main) {
+                             /*GlobalScope.launch(Dispatchers.Main) {
                                 val weather = getWeather(lat, lon)
                                 if (weather.status == Status.SUCCESS) {
                                     weather.data?.let {
@@ -67,7 +67,7 @@ class FishWidgetProvider : AppWidgetProvider(), KoinComponent {
                                         ), views
                                     )
                                 }
-                            }
+                            }*/
                         }
                     }
                 }
