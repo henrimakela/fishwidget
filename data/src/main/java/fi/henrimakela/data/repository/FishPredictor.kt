@@ -3,7 +3,6 @@ package fi.henrimakela.data.repository
 import WeatherResponse
 import fi.henrimakela.domain.fish.FishForecast
 import fi.henrimakela.domain.fish.FishPredictionConfiguration
-import java.beans.Visibility
 
 //http://www.kalassa.net/kalapedia/index.php/S%C3%A4%C3%A4n_vaikutus_kalastukseen
 object FishPredictor {
@@ -12,23 +11,23 @@ object FishPredictor {
     private lateinit var configuration: FishPredictionConfiguration
 
     fun getPrediction(
-        weather: WeatherResponse,
+        response: WeatherResponse,
         configuration: FishPredictionConfiguration
     ): FishForecast {
         this.configuration = configuration
 
         var forecast = FishForecast(
-            getFishWeatherDesc(weather.current.weather[0].id),
-            getPressureDesc(weather.current.pressure),
-            getWindDesc(weather.current.wind_speed),
-            weather.current.weather[0].main,
-            "$ICON_BASE_URL${weather.current.weather[0].icon}.png",
-            weather.current.temp,
-            weather.current.feels_like,
-            weather.current.humidity,
-            weather.current.pressure,
-            weather.current.wind_speed,
-            weather.current.wind_deg
+            getFishWeatherDesc(response.weather[0].id),
+            getPressureDesc(response.main.pressure),
+            getWindDesc(response.wind.speed),
+            response.weather[0].main,
+            "$ICON_BASE_URL${response.weather[0].icon}.png",
+            response.main.temp,
+            response.main.feels_like,
+            response.main.humidity,
+            response.main.pressure,
+            response.wind.speed,
+            response.wind.deg
         )
         return forecast
     }
@@ -43,7 +42,7 @@ object FishPredictor {
 
     private fun getPressureDesc(pressure: Double): String {
         return when {
-            pressure < 1013.25 -> {
+            pressure < 1013 -> {
                 configuration.lowPressure
             }
             else -> {

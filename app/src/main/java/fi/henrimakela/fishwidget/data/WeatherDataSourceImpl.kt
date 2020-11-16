@@ -1,5 +1,6 @@
 package fi.henrimakela.fishwidget.data
 
+
 import WeatherResponse
 import fi.henrimakela.data.WeatherDataSource
 import fi.henrimakela.domain.Resource
