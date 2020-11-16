@@ -13,3 +13,4 @@ data class FishForecast(
     var wind_speed: Double,
     var wind_deg: Double
 )
+

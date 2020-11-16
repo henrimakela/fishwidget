@@ -24,10 +24,10 @@ object FishPredictor {
             "$ICON_BASE_URL${response.weather[0].icon}.png",
             response.main.temp,
             response.main.feels_like,
-            response.main.humidity.toDouble(),
-            response.main.pressure.toDouble(),
+            response.main.humidity,
+            response.main.pressure,
             response.wind.speed,
-            response.wind.deg.toDouble()
+            response.wind.deg
         )
         return forecast
     }
