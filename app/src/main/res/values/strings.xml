@@ -43,4 +43,7 @@
     <string name="settings_theme_mode_title">Dark Theme</string>
     <string name="settings_unit_title">Metric</string>
     <string name="settings_unit_summary">The unit which the data is displayed in</string>
+    <string name="unit_metric">Metric</string>
+    <string name="unit_imperial">Imperial</string>
+    <string name="fishwidget_settings_preferences">settings_preferences</string>
 </resources>
