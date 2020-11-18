@@ -10,6 +10,8 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -75,7 +77,7 @@ class ForecastFragment : Fragment() {
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.settings -> {
-                    Toast.makeText(requireContext(), "Settings", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_forecastFragment_to_settingsFragment)
                     true
                 }
                 else -> {
