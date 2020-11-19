@@ -1,10 +1,17 @@
+/*
+ * Fishwidget
+ *
+ * Copyright (c) 2020. Henri Mäkelä www.henrimakela.fi
+ */
+
 package fi.henrimakela.fishwidget.view
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
@@ -14,20 +21,25 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.squareup.picasso.Picasso
 import fi.henrimakela.domain.Status
 import fi.henrimakela.domain.fish.FishForecast
 import fi.henrimakela.fishwidget.R
 import fi.henrimakela.fishwidget.adapter.ForecastAdapter
 import fi.henrimakela.fishwidget.util.getWindDegString
 import fi.henrimakela.fishwidget.viewmodel.ForecastViewModel
+import fi.henrimakela.fishwidget.viewmodel.SettingsViewModel
 import kotlinx.android.synthetic.main.fragment_forecast.*
 
-
-
+/**
+ * The main view of the application
+ * @property forecastViewModel the view model that provides all the forecast related data
+ * @property settingsViewModel the view model that provides the unit that should be used when fetching the weather (metric or imperial) default is metric.
+ *
+ * */
 class ForecastFragment : Fragment() {
 
     private lateinit var forecastViewModel: ForecastViewModel
+    private lateinit var settingsViewModel: SettingsViewModel
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var adapter: ForecastAdapter
 
@@ -40,42 +52,23 @@ class ForecastFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        adapter = ForecastAdapter()
-        recycler_view.adapter = adapter
-        recycler_view.layoutManager = LinearLayoutManager(requireContext())
-
-        forecastViewModel =
-            ViewModelProvider(findNavController().getViewModelStoreOwner(R.id.main_nav_graph)).get(
-                ForecastViewModel::class.java
-            )
-        getForecastWithUserCoordinates()
-        Picasso.get().setLoggingEnabled(true)
-        forecastViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            showOrHideLoading(it)
-        })
-
-
-        forecastViewModel.weatherResponse.observe(viewLifecycleOwner, Observer {
-            if (it.status == Status.ERROR) {
-                showError(it.message!!)
-            }
-
-        })
-
-        forecastViewModel.fishForecast.observe(viewLifecycleOwner, Observer {
-            updateViews(it)
-        }
-        )
+        setupToolbar()
+        setupRecyclerView()
+        setupViewModels()
+        observeData()
 
         refresh.setOnClickListener {
-            getForecastWithUserCoordinates()
+            settingsViewModel.unit.value?.let {
+                getForecastWithUserCoordinates(it)
+            }
         }
+    }
 
+    private fun setupToolbar() {
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.settings -> {
-                    Toast.makeText(requireContext(), "Settings", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_forecastFragment_to_settingsFragment)
                     true
                 }
                 else -> {
@@ -83,6 +76,36 @@ class ForecastFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun observeData() {
+        settingsViewModel.unit.observe(viewLifecycleOwner, Observer { getForecastWithUserCoordinates(it)})
+        forecastViewModel.fishForecast.observe(viewLifecycleOwner, Observer {updateViews(it)})
+        forecastViewModel.isLoading.observe(viewLifecycleOwner, Observer { showOrHideLoading(it) })
+
+        forecastViewModel.weatherResponse.observe(viewLifecycleOwner, Observer {
+            if (it.status == Status.ERROR) {
+                showError(it.message!!)
+            }
+        })
+
+    }
+
+    private fun setupViewModels() {
+        forecastViewModel =
+            ViewModelProvider(findNavController().getViewModelStoreOwner(R.id.main_nav_graph)).get(
+                ForecastViewModel::class.java
+            )
+        settingsViewModel =
+            ViewModelProvider(findNavController().getViewModelStoreOwner(R.id.main_nav_graph)).get(
+                SettingsViewModel::class.java
+            )
+    }
+
+    private fun setupRecyclerView() {
+        adapter = ForecastAdapter()
+        recycler_view.adapter = adapter
+        recycler_view.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun showOrHideLoading(isLoading: Boolean) {
@@ -141,7 +164,7 @@ class ForecastFragment : Fragment() {
         adapter.setData(arrayListOf(overAllWeatherItemData, windItemData, pressureItemData))
     }
 
-    private fun getForecastWithUserCoordinates() {
+    private fun getForecastWithUserCoordinates(unit: String) {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         if (checkSelfPermission(
                 requireContext(),
@@ -153,7 +176,7 @@ class ForecastFragment : Fragment() {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener {
-                forecastViewModel.getForecastWithCoordinates(it.latitude, it.longitude)
+                forecastViewModel.getForecastWithCoordinates(it.latitude, it.longitude, unit)
             }
 
             //TODO: Handle failure

@@ -8,6 +8,7 @@ import fi.henrimakela.fishwidget.data.FishingDataSourceImpl
 import fi.henrimakela.fishwidget.data.WeatherDataSourceImpl
 import fi.henrimakela.fishwidget.data.network.ResponseHandler
 import fi.henrimakela.fishwidget.data.network.WeatherService
+import fi.henrimakela.fishwidget.util.AppSettingPreferences
 import fi.henrimakela.usecases.GetFishForecast
 import fi.henrimakela.usecases.GetWeather
 import org.koin.android.ext.koin.androidContext
@@ -16,6 +17,7 @@ import org.koin.dsl.module
 val appModule = module(override = true) {
 
     single {ResponseHandler()}
+    single {AppSettingPreferences(get())}
     single {WeatherService.create()}
     single {WeatherDataSourceImpl(get(), get()) as WeatherDataSource}
     single {FishingDataSourceImpl(get()) as FishingDataSource}

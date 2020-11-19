@@ -1,3 +1,9 @@
+/*
+ * Fishwidget
+ *
+ * Copyright (c) 2020. Henri Mäkelä www.henrimakela.fi
+ */
+
 package fi.henrimakela.fishwidget
 
 import android.app.Application
@@ -24,7 +30,7 @@ class FishWidgetApp : Application() {
         monitorConnectivity()
     }
 
-    private fun monitorConnectivity(){
+    private fun monitorConnectivity() {
         val intentFilter = IntentFilter()
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
         registerReceiver(connMonitor, intentFilter)
