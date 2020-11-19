@@ -24,7 +24,6 @@ interface WeatherService {
                 .baseUrl("https://api.openweathermap.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-
             return retrofit.create<WeatherService>(WeatherService::class.java)
         }
     }

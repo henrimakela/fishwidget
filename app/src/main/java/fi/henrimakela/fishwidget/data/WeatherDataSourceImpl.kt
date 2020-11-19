@@ -14,13 +14,14 @@ class WeatherDataSourceImpl(
     private val responseHandler: ResponseHandler
 ) : WeatherDataSource {
 
-    override suspend fun getWeather(lat: Double, lon: Double): Resource<WeatherResponse> {
+    override suspend fun getWeather(lat: Double, lon: Double, unit: String): Resource<WeatherResponse> {
         return try {
             responseHandler.handleSuccess(
                 service.getWeather(
                     lat,
                     lon,
                     lang = Locale.getDefault().language,
+                    units = unit,
                     appid = BuildConfig.OPENWEATHERMAP_API_KEY
                 )
             )

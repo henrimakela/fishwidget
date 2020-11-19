@@ -1,7 +1,12 @@
+/*
+ * Fishwidget
+ *
+ * Copyright (c) 2020. Henri Mäkelä www.henrimakela.fi
+ */
+
 package fi.henrimakela.fishwidget.view
 
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -10,9 +15,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import fi.henrimakela.fishwidget.R
 import fi.henrimakela.fishwidget.util.AppSettingPreferences
-import fi.henrimakela.fishwidget.viewmodel.ForecastViewModel
 import fi.henrimakela.fishwidget.viewmodel.SettingsViewModel
 import kotlinx.android.synthetic.main.fragment_settings.*
+
+/**
+ * Fragment for app settings. Currently, the only setting is the unit of the weather data
+ * */
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
 

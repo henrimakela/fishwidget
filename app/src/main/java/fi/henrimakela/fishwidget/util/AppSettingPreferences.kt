@@ -6,6 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import fi.henrimakela.fishwidget.R
 
+/**
+ * Helper class for getting weather unit preferences from shared preferences.
+ * @property _unit private mutable live data. Will be changed from within the class
+ * @property unit public getter of immutable live data for the unit
+ *
+ */
+
 class AppSettingPreferences(context: Context) :
     SharedPreferences.OnSharedPreferenceChangeListener {
 
