@@ -2,6 +2,7 @@
 <resources>
     <color name="primary">#3F4950</color>
     <color name="secondary">#F5F5F5</color>
-    <color name="background">#3F4950</color>
+    <color name="background">#121212</color>
     <color name="color_primary_dark">#3F4950</color>
+    <color name="separator_color">#404040</color>
 </resources>

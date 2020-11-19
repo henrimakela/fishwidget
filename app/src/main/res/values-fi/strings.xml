@@ -38,4 +38,10 @@
     <string name="wind_label">Tuuli</string>
     <string name="wind_direction">Tuulen suunta</string>
     <string name="humidity_label">Kosteus</string>
+    <string name="unit_metric">Metrinen</string>
+    <string name="unit_imperial">Imperiaalinen</string>
+    <string name="fishwidget_settings_preferences">settings_preferences</string>
+    <string name="label_unit">Yksikkö</string>
+    <string name="label_theme">Teema</string>
+    <string name="theme_mode">Vaalea Teema</string>
 </resources>

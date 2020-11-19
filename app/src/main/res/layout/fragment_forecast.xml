@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?backgroundColor"
     android:fitsSystemWindows="true"
     tools:context=".view.ForecastFragment">
 
@@ -12,6 +11,7 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="360dp"
+        android:background="?backgroundColor"
         app:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -165,7 +165,6 @@
 
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:background="?backgroundColor"
                 app:menu="@menu/main_menu"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
