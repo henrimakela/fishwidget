@@ -6,8 +6,10 @@
 
 package fi.henrimakela.fishwidget.view
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,10 +35,24 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 SettingsViewModel::class.java
             )
         setupToolbar()
-        setupSwitch()
+        setupUnitSwitch()
+        setupThemeSwitch()
+
+       /* settingsViewModel.useDarkMode.observe(viewLifecycleOwner, Observer {
+            when{
+                it -> {
+                    theme_switch.isChecked = true
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                }
+                else -> {
+                    theme_switch.isChecked = false
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+            }
+        })*/
     }
 
-    private fun setupSwitch() {
+    private fun setupUnitSwitch() {
         settingsViewModel.unit.observe(viewLifecycleOwner, Observer {
             unit_switch.apply {
                 when {
@@ -51,20 +67,36 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 }
             }
         })
-        unit_switch.apply {
-            setOnCheckedChangeListener { _, checked ->
-                when {
-                    checked -> settingsViewModel.saveUnitPreference(AppSettingPreferences.PREFERENCE_UNIT_IMPERIAL)
-                    else -> settingsViewModel.saveUnitPreference(AppSettingPreferences.PREFERENCE_UNIT_METRIC)
-                }
+        unit_switch.setOnCheckedChangeListener { _, checked ->
+            when {
+                checked -> settingsViewModel.saveUnitPreference(AppSettingPreferences.PREFERENCE_UNIT_IMPERIAL)
+                else -> settingsViewModel.saveUnitPreference(AppSettingPreferences.PREFERENCE_UNIT_METRIC)
             }
         }
+    }
 
+    private fun setupThemeSwitch() {
+        setThemeSwitchInitialState()
+        theme_switch.setOnCheckedChangeListener { _, checked ->
+            when{
+                checked -> settingsViewModel.saveThemeModePreference(true)
+                else -> settingsViewModel.saveThemeModePreference(false)
+            }
+
+        }
     }
 
     private fun setupToolbar() = toolbar.apply {
         setNavigationIcon(R.drawable.ic_back)
         title = resources.getString(R.string.settings)
         setNavigationOnClickListener { requireView().findNavController().popBackStack() }
+    }
+
+    private fun setThemeSwitchInitialState() {
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        when (currentNightMode) {
+            Configuration.UI_MODE_NIGHT_YES -> theme_switch.isChecked = true
+            else -> theme_switch.isChecked = false
+        }
     }
 }

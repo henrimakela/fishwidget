@@ -8,4 +8,5 @@
     <dimen name="radiusMedium">8dp</dimen>
     <dimen name="paddingSmall">8dp</dimen>
     <dimen name="match_constraint">0dp</dimen>
+    <dimen name="switch_min_width">50dp</dimen>
 </resources>

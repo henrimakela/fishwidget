@@ -12,20 +12,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="?textAppearanceHeadline5"
+        tools:title="@string/settings"
         />
-    <androidx.appcompat.widget.SwitchCompat
-        tools:text="Imperial"
-        tools:checked="true"
-        android:id="@+id/unit_switch"
-        android:textAppearance="?textAppearanceListItem"
-        app:switchPadding="@dimen/margin_large"
-        app:switchMinWidth="50dp"
+
+    <TextView
+        android:id="@+id/unit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:textAppearance="?textAppearanceCaption"
+        android:text="@string/label_unit"
+        />
+    <androidx.appcompat.widget.SwitchCompat
+        tools:text="@string/unit_imperial"
+        tools:checked="true"
+        android:id="@+id/unit_switch"
+        android:textAppearance="?textAppearanceListItem"
+        app:switchPadding="@dimen/margin_large"
+        app:switchMinWidth="@dimen/switch_min_width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/unit_label"
+        app:layout_constraintTop_toBottomOf="@id/unit_label"
+        android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
+        />
+
+    <TextView
+        android:id="@+id/label_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/unit_label"
+        app:layout_constraintTop_toBottomOf="@id/unit_switch"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:textAppearance="?textAppearanceCaption"
+        android:text="@string/label_theme"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:text="@string/theme_mode"
+        tools:checked="true"
+        android:id="@+id/theme_switch"
+        android:textAppearance="?textAppearanceListItem"
+        app:switchMinWidth="@dimen/switch_min_width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/label_theme"
+        app:layout_constraintTop_toBottomOf="@id/label_theme"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
         />
 
 

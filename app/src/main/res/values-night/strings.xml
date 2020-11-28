@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Fishwidget
+  ~
+  ~ Copyright (c) 2020. Henri Mäkelä www.henrimakela.fi
+  -->
+
+<resources>
+    <string name="theme_mode">Dark Theme</string>
+</resources>

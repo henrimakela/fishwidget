@@ -37,13 +37,10 @@
     <string name="wind_label">Wind</string>
     <string name="wind_direction">Wind direction</string>
     <string name="humidity_label">Humidity</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="settings_theme_mode_summary">The app will change it\'s appearance to darker one.</string>
-    <string name="settings_theme_mode_title">Dark Theme</string>
-    <string name="settings_unit_title">Metric</string>
-    <string name="settings_unit_summary">The unit which the data is displayed in</string>
     <string name="unit_metric">Metric</string>
     <string name="unit_imperial">Imperial</string>
     <string name="fishwidget_settings_preferences">settings_preferences</string>
+    <string name="label_unit">Unit</string>
+    <string name="label_theme">Theme</string>
+    <string name="theme_mode">Light Theme</string>
 </resources>
