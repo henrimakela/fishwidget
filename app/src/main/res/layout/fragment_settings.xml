@@ -54,7 +54,7 @@
         />
 
     <androidx.appcompat.widget.SwitchCompat
-        tools:text="@string/theme_mode"
+        android:text="@string/theme_mode"
         tools:checked="true"
         android:id="@+id/theme_switch"
         android:textAppearance="?textAppearanceListItem"
