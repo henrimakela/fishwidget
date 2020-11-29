@@ -57,6 +57,9 @@ class ForecastFragment : Fragment() {
         setupViewModels()
         observeData()
 
+        weather_details.setOnClickListener {
+            findNavController().navigate(R.id.action_forecastFragment_to_weatherDetailFragment)
+        }
         refresh.setOnClickListener {
             settingsViewModel.unit.value?.let {
                 getForecastWithUserCoordinates(it)

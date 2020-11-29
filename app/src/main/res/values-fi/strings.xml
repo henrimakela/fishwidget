@@ -44,4 +44,5 @@
     <string name="label_unit">Yksikkö</string>
     <string name="label_theme">Teema</string>
     <string name="theme_mode">Vaalea Teema</string>
+    <string name="label_temperature">Temperature</string>
 </resources>

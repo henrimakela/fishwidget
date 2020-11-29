@@ -43,4 +43,8 @@
     <string name="label_unit">Unit</string>
     <string name="label_theme">Theme</string>
     <string name="theme_mode">Light Theme</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_temperature">Temperature</string>
+    <string name="weather_details">Weather details</string>
 </resources>

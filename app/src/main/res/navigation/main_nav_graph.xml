@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_forecastFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_forecastFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/setupFragment"
@@ -30,4 +33,9 @@
         android:name="fi.henrimakela.fishwidget.view.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="fi.henrimakela.fishwidget.view.WeatherDetailFragment"
+        android:label="fragment_weather_detail"
+        tools:layout="@layout/fragment_weather_detail" />
 </navigation>
